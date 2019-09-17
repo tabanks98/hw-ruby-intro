@@ -3,41 +3,57 @@
 # Part 1
 
 def sum arr
-  arr.inject(0){|sum,x| sum + x}
+  arr.reduce 0, :+
 end
 
 def max_2_sum arr
-  arr2 = arr.delete(arr.max);
-  arr2.max + arr.max
+  sum(arr.sort.last(2))
 end
 
 def sum_to_n? arr, n
-  if arrno.length = 0
+  if arr.length == 0 or arr.length == 1
     false
   else
-    isPair = arr.combination(2).find {|x, y| x + y == n}
-    if isPair
-      true
-    else
-      false
+    arr.combination(2).to_a.each do |couple|
+      return true if sum(couple) == n
+    end
+  end
+  return false
 end
 
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  name = "Hello, " + name
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  /^[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/.match(s) != nil
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  if s == "0"
+    s = "00"
+  end
+  /^[10]*00$/.match(s) != nil
 end
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+
+  attr_accessor :isbn
+  attr_accessor :price
+
+  def initialize isbn, price
+    raise ArgumentError if isbn.empty? or price <= 0
+    @isbn = isbn
+    @price = price
+  end
+
+  def price_as_string
+    sprintf("$%2.2f", @price)
+    format("$%2.2f", @price)
+  end
+
 end
