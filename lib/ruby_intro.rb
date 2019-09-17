@@ -3,15 +3,23 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  arr.inject(0){|sum,x| sum + x}
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  arr2 = arr.delete(arr.max);
+  arr2.max + arr.max
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  if arrno.length = 0
+    false
+  else
+    isPair = arr.combination(2).find {|x, y| x + y == n}
+    if isPair
+      true
+    else
+      false
 end
 
 # Part 2
